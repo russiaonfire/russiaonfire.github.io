@@ -15,8 +15,8 @@
         <i>{{.Key}}</i>
     </p>  
 
-    {{ range .Pages.ByDate }}    
-        <ul>
+    <ul>
+        {{ range .Pages.ByDate }}        
         <li>    
             <!-- <p class="small text-muted">
                 <i>{{.Date | time.Format ":date_medium"}}</i>
@@ -24,9 +24,9 @@
             <p class="mb-0">
                 <a href="{{.Permalink}}">{{.Title}}</a>
             </p>
-        </li>
-        </ul>
-    {{ end }}
+        </li>        
+        {{ end }}
+    </ul>
 {{ end }}
 
 {{ end }}

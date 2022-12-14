@@ -9,7 +9,7 @@
     @mb-zoom="onZoom"
     >
 
-    <MapboxMarker 
+    <MapboxMarker
       v-for="strike in strikes" 
       :lng-lat="[strike.lng, strike.lat]"
     >
