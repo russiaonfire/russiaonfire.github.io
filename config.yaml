@@ -1,0 +1,46 @@
+defaultContentLanguage: ru
+minifyOutput: true
+enableRobotsTXT: true
+# disableKinds:
+#   - section
+#   - taxonomy
+#   - term
+#   - RSS
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# @refs https://gohugo.io/templates/output-formats/#output-formats
+outputs:
+  page:
+    - html
+  section:
+    - json
+
+params:
+  editURL: https://github.com/username/repo/blob/master/content/
+
+languages:
+  ru:
+    baseURL: /
+    cdnURL: ""
+    yandexMetrics:
+    googleAnalytics:
+    email: positiveagenda@proton.me
+    # description:
+    title: RUSSIA ON FIRE
+    copyright: russiaonfire
+    menu:
+      header:
+        - weight: 10
+          name: Example
+          ur: https://example.com
+      footer:
+        - weight: 10
+          name: GitHub
+          url: https://github.com
+        - weight: 20
+          name: Commit Strike
+          url: http://example.com

@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+{{ if .Params.Lat }}
+<script>
+window.__GOTO__ = {
+    lat: {{ .Params.lat }},
+    lng: {{ .Params.lng }}
+}
+</script>
+{{ end }}
+
+<div class="post">
+    {{ $hero := "" }}
+    {{ if .Params.Hero }}
+        {{ $src := .Params.Hero }}
+        {{ $image := resources.Get $src | fingerprint }}
+        {{ $hero = $image.RelPermalink }}
+    {{ end }}
+
+    {{ with $hero }}
+        <div class="post-hero">
+            <img 
+                width="100%" 
+                height="auto"
+                src="{{ $.Site.Params.cdnURL }}{{ $hero }}"
+            >
+        </div>    
+    {{ end }}
+
+    <h1 class="post-title">
+        {{ .Title | markdownify }}
+    </h1>
+
+    <div class="post-content">
+        {{- with .Content -}}
+        <div>
+          {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor"></a> ${3}` | safeHTML }}
+        </div>
+        {{- end -}}
+    </div>
+</div>
+{{ end }}
