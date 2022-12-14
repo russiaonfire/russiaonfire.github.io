@@ -1,0 +1,1 @@
+[![Deploy Hugo site to Pages](https://github.com/russiaonfire/russiaonfire.github.io/actions/workflows/pages.yaml/badge.svg)](https://github.com/russiaonfire/russiaonfire.github.io/actions/workflows/pages.yaml)
