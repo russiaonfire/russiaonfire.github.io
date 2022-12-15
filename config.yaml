@@ -21,6 +21,7 @@ outputs:
 
 params:
   editURL: https://github.com/russiaonfire/russiaonfire.github.io/blob/master/content/
+  googleTagID: G-D9M719C20V
 
 languages:
   ru:
