@@ -2,7 +2,7 @@ defaultContentLanguage: ru
 minifyOutput: true
 enableRobotsTXT: true
 disableKinds:
-  - section
+  # - section # used to generate /strikes/index.json
   - taxonomy
   - term
   - RSS
