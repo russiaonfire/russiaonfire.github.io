@@ -32,7 +32,7 @@ main {
     bottom: 40px; 
     left: 0;
     width: 100%;
-    max-width: 420px;      
+    max-width: var(--main-width);      
     max-height: calc(100vh - 40px); // leave the space for map attribution;
     margin-bottom: auto;
     display: flex;
@@ -51,6 +51,12 @@ main {
     box-shadow: var(--shadow-sm);
     overflow-y: auto;
     position: relative;
+
+    @include phone {
+        background: rgba(var(--color-bg), .8);
+        max-width: calc(var(--main-width) + var(--main-ident));
+        margin: 0 auto;
+    }
 }
 
 .post-hero {
