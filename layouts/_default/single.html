@@ -1,5 +1,6 @@
 {{ define "main" }}
 
+{{ $page := . }}
 {{ if .Params.Lat }}
 <script id="location" type="application/json">
     {
@@ -10,19 +11,16 @@
 {{ end }}
 
 <div class="post">
-    {{ $hero := "" }}
-    {{ if .Params.Hero }}
-        {{ $src := .Params.Hero }}
-        {{ $image := resources.Get $src | fingerprint }}
-        {{ $hero = $image.RelPermalink }}
-    {{ end }}
-
-    {{ with $hero }}
+    {{ with .Params.Hero }}
+        {{ $image := resources.Get . | fingerprint }}
         <div class="post-hero">
             <img 
-                width="100%" 
+                width="{{ $image.Width }}"
+                height="{{ $image.Height }}"
                 height="auto"
-                src="{{ $.Site.Params.cdnURL }}{{ $hero }}"
+                style="width:100%;height:auto;"
+                alt="{{ $page.Title | plainify }}"
+                src="{{ $.Site.Params.cdnURL }}{{ $image.RelPermalink }}"
             >
         </div>    
     {{ end }}

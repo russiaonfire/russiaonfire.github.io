@@ -1,0 +1,20 @@
+.page-header {
+    display: flex;
+}
+
+.page-header-logo {
+    display: block;
+    $size: 70px;
+    width: $size;
+    height: $size;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.page-header-absolute {
+    position: absolute;
+    z-index: 10;
+}

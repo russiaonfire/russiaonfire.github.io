@@ -20,7 +20,7 @@ outputs:
     - json
 
 params:
-  editURL: https://github.com/username/repo/blob/master/content/
+  editURL: https://github.com/russiaonfire/russiaonfire.github.io/blob/master/content/
 
 languages:
   ru:
@@ -31,7 +31,7 @@ languages:
     email: positiveagenda@proton.me
     # description:
     title: RUSSIA ON FIRE
-    copyright: russiaonfire
+    copyright: Russiaonfire
     menu:
       header:
         - weight: 10
@@ -40,7 +40,4 @@ languages:
       footer:
         - weight: 10
           name: GitHub
-          url: https://github.com
-        - weight: 20
-          name: Commit Strike
-          url: http://example.com
+          url: https://github.com/russiaonfire/russiaonfire.github.io

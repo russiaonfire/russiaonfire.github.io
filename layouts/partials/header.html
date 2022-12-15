@@ -1,0 +1,14 @@
+{{ $class := "" }}
+{{ if isset .Params "hero" }}
+  {{ $class = "page-header-absolute" }}
+{{ end }}
+
+<header class="page-header {{ $class }}">
+    <a class="page-header-logo" href="{{.Site.BaseURL}}">
+        {{ $image := resources.Get "img/logo.webp" | fingerprint }}
+        <img 
+            src="{{ $.Site.Params.cdnURL }}{{ $image.RelPermalink }}"
+            alt="{{ $.Site.Copyright }}"
+        >
+    </a>
+</header>

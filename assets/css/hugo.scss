@@ -2,6 +2,7 @@
 @import "theme";
 @import "utils";
 @import "typo";
+@import "page-header";
 @import "page-footer";
 
 html, body {
@@ -10,6 +11,7 @@ html, body {
     line-height: 1.4;
     background: rgba(var(--color-html), 1);
     color: rgba(var(--color-text), 1);
+    overflow: hidden;
 }
 
 #app {
@@ -39,16 +41,17 @@ main {
     background: rgba(var(--color-bg), .6);
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(10px);
-    padding: 30px;
+    padding: var(--main-ident);
     border-radius: 8px;
     box-shadow: var(--shadow-sm);
     overflow-y: auto;
+    position: relative;
 }
 
 .post-hero {
-    margin-top: -30px;
-    margin-left: -30px;
-    margin-right: -30px;
+    margin-top: calc(var(--main-ident) * -1);
+    margin-left: calc(var(--main-ident) * -1);
+    margin-right: calc(var(--main-ident) * -1);
 }
 
 .footnote-ref {
@@ -76,5 +79,19 @@ main {
 
     .footnote-backref {
         display: none;
+    }
+}
+
+ul.pagination {
+    display: flex;
+    gap: 10px;
+
+    a {
+        color: rgba(var(--color-text), 1);
+        text-decoration: none;
+    }
+
+    a[aria-current], a[aria-disabled] {
+        color: rgba(var(--color-muted), 1);
     }
 }
