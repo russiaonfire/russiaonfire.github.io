@@ -63,19 +63,13 @@ main {
 .footnotes {
     li {
         list-style-type: decimal;
-        // list-style-position: inside;
     }
 
     hr {
         display: none;
     }
 
-    font-size: var(--font-size-small);
     color: var(--color-muted);
-
-    a {
-        color: inherit;
-    }
 
     .footnote-backref {
         display: none;

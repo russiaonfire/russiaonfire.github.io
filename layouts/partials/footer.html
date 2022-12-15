@@ -1,17 +1,19 @@
 <footer class="page-footer">
-  <p class="mb-0">
+  <p>
     © {{ now.Year }} {{ $.Site.Copyright }}
-  </p>    
 
-    <nav>
-        {{ range $.Site.Menus.footer }}
-        <a class="footer-nav-a" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
-        {{ end }}
+    {{ range $.Site.Menus.footer }}
+    <a class="footer-nav-a" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+    {{ end }}
 
-        {{ with $.File }}
-        <a class="footer-nav-a" href='{{ $.Site.Params.editURL }}{{ replace $.File.Dir "\\" "/" }}{{ .LogicalName }}' target="blank">
-          {{ T "editThisPage" }}
-        </a>
-        {{ end }}
-    </nav>
+    {{ with $.File }}
+    <a class="footer-nav-a" href='{{ $.Site.Params.editURL }}{{ replace $.File.Dir "\\" "/" }}{{ .LogicalName }}' target="blank">
+      {{ T "editThisPage" }}
+    </a>
+    {{ end }}
+  </p>
+
+  <p class="mb-0 small" style="text-transform: uppercase">
+    {{ T "footerWarning" }}
+  </p>
 </footer>
