@@ -1,11 +1,11 @@
 {{ define "main" }}
 
 {{ if .Params.Lat }}
-<script>
-window.__GOTO__ = {
-    lat: {{ .Params.lat }},
-    lng: {{ .Params.lng }}
-}
+<script id="location" type="application/json">
+    {
+        "lat": {{ .Params.lat }},
+        "lng": {{ .Params.lng }}
+    }
 </script>
 {{ end }}
 
@@ -30,6 +30,10 @@ window.__GOTO__ = {
     <h1 class="post-title">
         {{ .Title | markdownify }}
     </h1>
+
+    <p class="text-muted">
+        {{ .Date | time.Format ":date_long" }}
+    </p>
 
     <div class="post-content">
         {{- with .Content -}}

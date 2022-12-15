@@ -4,10 +4,12 @@
 @import "typo";
 @import "page-footer";
 
-body {
+html, body {
     font-family: arial,sans-serif;
     font-size: 18px;
     line-height: 1.4;
+    background: rgba(var(--color-html), 1);
+    color: rgba(var(--color-text), 1);
 }
 
 #app {
@@ -34,21 +36,13 @@ main {
 }
 
 .main-content {
-    background: #FFF;    
+    background: rgba(var(--color-bg), .6);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(10px);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, .2) 2px 4px 20px;
+    box-shadow: var(--shadow-sm);
     overflow-y: auto;
-
-    &::after {
-        content: " ";
-        display: block;
-        position: sticky;
-        bottom: -30px; // + external padding
-        height: 20px;
-        background: linear-gradient(to top, #FFF, rgba(255, 255, 255, 0));
-        margin-bottom: -20px;
-    }
 }
 
 .post-hero {

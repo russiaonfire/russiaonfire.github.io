@@ -16,15 +16,30 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import {ISetikeJSON, Strike, ParseStrikes} from './lib/Strike'
-import {onMounted, reactive} from "vue"
+import {onBeforeUnmount, onMounted, reactive} from "vue"
+import { IGoto } from './lib/Goto';
 
 const state = reactive({
   strickes: <Strike[]>[],
-  goto: window.__GOTO__
+  goto: <IGoto | null>null
 })
 
 onMounted(async () => {
   const response = await fetch("/strikes/index.json");
   state.strickes = ParseStrikes(await response.json() as ISetikeJSON[])
 })
+
+onMounted(() => {
+  document.addEventListener('pjax:complete', go)
+  go()
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('pjax:complete', go)
+})
+
+function go() {
+  const tag = document.getElementById("location")
+  state.goto = tag ? JSON.parse(tag.textContent!) : null
+}
 </script>

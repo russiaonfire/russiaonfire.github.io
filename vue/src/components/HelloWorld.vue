@@ -1,6 +1,6 @@
 <template>
   <MapboxMap 
-    map-style="mapbox://styles/mapbox/light-v11"
+    map-style="mapbox://styles/mapbox/dark-v11"
     access-token="pk.eyJ1IjoicG9zaXRpdmVhZ2VuZGEiLCJhIjoiY2xibXUzNjl4MGxtazNwcHE1Y3A0dGF2eiJ9.QVcg1g8ycABbRqnMTAoi4g" 
     ref="$map"
     :center="[center.lng, center.lat]"

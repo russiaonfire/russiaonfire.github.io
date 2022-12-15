@@ -31,3 +31,7 @@
 {{ $style := resources.Get "css/hugo.scss" | resources.ToCSS | resources.Minify | fingerprint }}
 <link rel="stylesheet" href="{{ .Site.Params.cdnURL }}{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}"
       crossorigin="anonymous">
+
+{{ $js := resources.Get "js/hugo.js" | js.Build }}
+<script src="{{ .Site.Params.cdnURL }}{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"
+      crossorigin="anonymous"></script>
