@@ -4,4 +4,5 @@
 
 ## How to contribute 
 
-Just add a new markdown formatted file to the `content/strikes` directory. Follow the [example](content/strikes/engels-2.md).
+
+Just add a new markdown formatted file to the `content/strikes` directory. Follow the [example](content/strikes/engels-2.md). Convert the hero image to webp format (if any). Do not forget about copyrights and links to sources.
