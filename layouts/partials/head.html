@@ -18,9 +18,13 @@
 >
 <meta name="robots" content="noodp"/>
 
-{{ with .Params.Hero }}
-      {{ $image := resources.Get . | fingerprint }}
-      <meta property="og:image" content="{{ $.Site.Params.cdnURL }}{{ $image.RelPermalink }}" />
+{{ if .Params.Hero }}
+      {{ with .Params.Hero }}
+            {{ $image := resources.Get . | fingerprint }}
+            <meta property="og:image" content="{{ $.Site.Params.cdnURL }}{{ $image.RelPermalink }}" />
+      {{ end }}
+{{ else }}
+      <meta property="og:image" content="{{ $.Site.Params.cdnURL }}og.jpg" />
 {{ end }}
 
 <link rel="icon" href="/favicon.ico" type="image/x-icon">

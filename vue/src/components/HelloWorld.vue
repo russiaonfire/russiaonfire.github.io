@@ -19,18 +19,21 @@
       v-for="strike in strikes" 
       :lng-lat="[strike.lng, strike.lat]"
     >
-      <CanvasSmoke 
-        v-if="strike.outdated"
-        :style="{scale: scale}"
+      <div 
+        :title="strike.title" 
         @click="onClick(strike)"
-      />
+        style="cursor:pointer"
+      >
+        <CanvasSmoke 
+          v-if="strike.outdated"
+          :style="{scale: scale}"
+        />
 
-      <CanvasFire 
-        v-else
-        :style="{scale: scale}"
-        @click="onClick(strike)"
-      >      
-      </CanvasFire>
+        <CanvasFire 
+          v-else
+          :style="{scale: scale}"          
+        />
+      </div>     
     </MapboxMarker>
   </MapboxMap>
 </template>
