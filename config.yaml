@@ -1,11 +1,11 @@
 defaultContentLanguage: ru
 minifyOutput: true
 enableRobotsTXT: true
-# disableKinds:
-#   - section
-#   - taxonomy
-#   - term
-#   - RSS
+disableKinds:
+  - section
+  - taxonomy
+  - term
+  - RSS
 
 markup:
   goldmark:
