@@ -1,9 +1,9 @@
 <template>
   <HelloWorld
-    :center="state.goto ? state.goto : {lat: 55.096375, lng: 37.659041}"
-    :zoom="state.goto ? 8 : 4"
+    :center="state.goto"
     :strikes="state.strickes"
-    style="width:100%;height:100%"    
+    :arrow="state.goto.zoom == zoomInitial ? false : true"
+    style="width:100%;height:100%"
   />
 </template>
 
@@ -16,12 +16,16 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import {ISetikeJSON, Strike, ParseStrikes} from './lib/Strike'
-import {onBeforeUnmount, onMounted, reactive} from "vue"
-import { IGoto } from './lib/Goto';
+import {onBeforeUnmount, onMounted, reactive, toHandlers} from "vue"
+import {IGotoZoom} from './lib/Goto'
+
+const zoomInitial = 4
+const zoomPoint = 7
+const center: IGotoZoom = {lat: 55.096375, lng: 37.659041, zoom: zoomInitial}
 
 const state = reactive({
   strickes: <Strike[]>[],
-  goto: <IGoto | null>null
+  goto: <IGotoZoom>center,
 })
 
 onMounted(async () => {
@@ -29,17 +33,25 @@ onMounted(async () => {
   state.strickes = ParseStrikes(await response.json() as ISetikeJSON[])
 })
 
-onMounted(() => {
-  document.addEventListener('pjax:complete', go)
-  go()
+onMounted(() => {  
+  state.goto = getLocation()
+  document.addEventListener('pjax:complete', fly)
 })
 
 onBeforeUnmount(() => {
-  document.removeEventListener('pjax:complete', go)
+  document.removeEventListener('pjax:complete', fly)
 })
 
-function go() {
+function fly() {
+  state.goto = getLocation()
+}
+
+function getLocation(): IGotoZoom {
   const tag = document.getElementById("location")
-  state.goto = tag ? JSON.parse(tag.textContent!) : null
+  if (tag) {
+    return {...JSON.parse(tag.textContent!), zoom: zoomPoint}
+  }
+
+  return center
 }
 </script>
