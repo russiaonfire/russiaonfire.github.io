@@ -1,7 +1,7 @@
 <template>
   <MapboxMap 
     map-style="mapbox://styles/mapbox/dark-v11"
-    access-token="pk.eyJ1IjoicG9zaXRpdmVhZ2VuZGEiLCJhIjoiY2xibXUzNjl4MGxtazNwcHE1Y3A0dGF2eiJ9.QVcg1g8ycABbRqnMTAoi4g" 
+    access-token="pk.eyJ1IjoicG9zaXRpdmVhZ2VuZGEiLCJhIjoiY2xicGhveHBvMDRrYjNucW55Z3Fia3ZtbiJ9.4Q34UBi89V3PFYgrrKIpsA"
     @mb-created="onCreated"
     @mb-zoom="onZoom"
     >
