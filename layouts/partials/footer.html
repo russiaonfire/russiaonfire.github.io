@@ -2,12 +2,12 @@
   <p>
     © {{ now.Year }} {{ $.Site.Copyright }}
 
-    {{ range $.Site.Menus.footer }}
-    <a class="footer-nav-a" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+    {{ with $.Site.Params.github }}
+    <a class="footer-nav-a" target="_blank" href="{{ . }}">GitHub</a>
     {{ end }}
 
     {{ with $.File }}
-    <a class="footer-nav-a" href='{{ $.Site.Params.editURL }}{{ replace $.File.Dir "\\" "/" }}{{ .LogicalName }}' target="blank">
+    <a class="footer-nav-a" target="_blank" href='{{ $.Site.Params.editURL }}{{ replace $.File.Dir "\\" "/" }}{{ .LogicalName }}'>
       {{ T "editThisPage" }}
     </a>
     {{ end }}

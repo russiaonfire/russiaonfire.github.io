@@ -4,11 +4,25 @@
 {{ end }}
 
 <header class="page-header {{ $class }}">
-    <a class="page-header-logo" href="{{.Site.BaseURL}}">
+    <a class="page-header-logo" href="{{ relLangURL "" }}">
         {{ $image := resources.Get "img/logo.webp" | fingerprint }}
         <img 
             src="{{ $.Site.Params.cdnURL }}{{ $image.RelPermalink }}"
             alt="{{ $.Site.Copyright }}"
         >
     </a>
+
+    {{ if .IsTranslated }}        
+        {{ range .Page.AllTranslations }}
+            {{ if ne .Language $.Site.Language }}
+                <a 
+                    class="page-header-lang" 
+                    href="{{ .Permalink }}"
+                    data-pjax="off"
+                >
+                    {{ .Site.Params.flag }}
+                </a>
+            {{ end }}            
+        {{ end }}
+    {{ end }}
 </header>

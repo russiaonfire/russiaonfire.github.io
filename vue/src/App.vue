@@ -29,7 +29,8 @@ const state = reactive({
 })
 
 onMounted(async () => {
-  const response = await fetch("/strikes/index.json");
+  const url = document.querySelector("meta[name='strikes']")!.getAttribute("content")!
+  const response = await fetch(url)
   state.strickes = ParseStrikes(await response.json() as ISetikeJSON[])
 })
 

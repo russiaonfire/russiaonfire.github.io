@@ -1,5 +1,7 @@
 .page-header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .page-header-logo {
@@ -17,4 +19,11 @@
 .page-header-absolute {
     position: absolute;
     z-index: 10;
+    left: var(--main-ident);
+    right: var(--main-ident);
+}
+
+.page-header-lang {
+    text-decoration: none!important;
+    font-size: 1.4rem;
 }

@@ -2,7 +2,7 @@ import Pjax from '../vendor/pjax.min.js';
 
 document.onreadystatechange = function () {
     const pjax = new Pjax({
-        elements: "a", // default is "a[href], form[action]"
+        elements: "a:not([data-pjax='off'])", // default is "a[href], form[action]"
         selectors: [
           "title",
           "meta[name=description]",
