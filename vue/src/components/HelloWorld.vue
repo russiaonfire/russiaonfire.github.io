@@ -75,14 +75,13 @@ watch([() => props.center, () => map],
 })
 
 // on mapbox initialized
-function onCreated(instance: any) {
+function onCreated(instance: any) {  
   map.value = instance
-  map.value.flyTo({
-    center: [props.center.lng, props.center.lat],  
-    zoom: props.center.zoom,
-    essential: true,
-    speed: 20,
-  })
+
+  nextTick(() => {
+    map.value.setZoom(props.center.zoom);
+    map.value.setCenter([props.center.lng, props.center.lat]);
+  })  
 }
 
 function onZoom() {
