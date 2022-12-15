@@ -4,6 +4,7 @@
     height: 40px;           
     background-image: url("@/assets/img/smoke.dark.gif");
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     transform: translateY(-50%);
+    opacity: 0.75;
 }
