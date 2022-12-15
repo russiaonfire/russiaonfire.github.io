@@ -1,6 +1,7 @@
 export interface ISetikeJSON {
     lat: number
     lng: number
+    permalink: string
     title: string
     date:  string
 }
@@ -9,6 +10,7 @@ export class Strike {
     lat: number
     lng: number
     title: string
+    permalink: string
     date: Date
     outdated: boolean
 
@@ -16,6 +18,7 @@ export class Strike {
     this.lat = json.lat
     this.lng = json.lng
     this.title = json.title
+    this.permalink = json.permalink
     this.date = new Date(json.date);
     this.outdated = isOutdated(this.date)
   }

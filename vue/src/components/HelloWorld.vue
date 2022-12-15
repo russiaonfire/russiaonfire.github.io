@@ -21,13 +21,16 @@
     >
       <CanvasSmoke 
         v-if="strike.outdated"
-        :style="{scale: scale}" 
+        :style="{scale: scale}"
+        @click="onClick(strike)"
       />
 
       <CanvasFire 
         v-else
-        :style="{scale: scale}" 
-      />
+        :style="{scale: scale}"
+        @click="onClick(strike)"
+      >      
+      </CanvasFire>
     </MapboxMarker>
   </MapboxMap>
 </template>
@@ -87,5 +90,10 @@ function onZoom() {
   } else {
     scale.value = (1*zoom)/maxSxaleZoom
   }
+}
+
+function onClick(strike: Strike) {
+  var event = new CustomEvent("redirect", { detail: { "url": strike.permalink }})
+  document.dispatchEvent(event)
 }
 </script>

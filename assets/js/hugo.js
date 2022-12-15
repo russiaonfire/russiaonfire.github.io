@@ -1,7 +1,7 @@
 import Pjax from '../vendor/pjax.min.js';
 
 document.onreadystatechange = function () {
-    new Pjax({
+    const pjax = new Pjax({
         elements: "a", // default is "a[href], form[action]"
         selectors: [
           "title",
@@ -9,4 +9,9 @@ document.onreadystatechange = function () {
           "main",
         ]
     });
+
+
+  document.addEventListener("redirect", (event) => {
+    pjax.loadUrl(event.detail.url);
+  });
 }

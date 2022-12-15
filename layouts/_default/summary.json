@@ -1,5 +1,6 @@
 {
     "title": "{{ .Title }}",
+    "permalink": "{{ .Permalink }}",
     "date" : "{{ .Date | time.Format "2006-01-02" }}",
     "lat" : {{ .Params.lat }},
     "lng" : {{ .Params.lng }}
