@@ -1,0 +1,13 @@
+$phone-max-width: 1000px;
+
+@mixin phone {
+  @media (max-width: $phone-max-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $phone-max-width + 1) {
+    @content;
+  }
+}
