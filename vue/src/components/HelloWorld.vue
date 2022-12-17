@@ -81,7 +81,17 @@ function onCreated(instance: any) {
   nextTick(() => {
     map.value.setZoom(props.center.zoom);
     map.value.setCenter([props.center.lng, props.center.lat]);
-  })  
+  })
+
+  map.value.on('style.load', () => {
+    map.value.setFog({
+        color: 'rgb(0, 0, 0)', // Lower atmosphere
+        'high-color': 'rgb(0, 0, 0)', // Upper atmosphere
+        'horizon-blend': 0, // Atmosphere thickness (default 0.2 at low zooms)
+        'space-color': 'rgb(4, 7, 7)', // Background color
+        'star-intensity': 0.05 // Background star brightness (default 0.35 at low zoooms )
+    });
+});
 }
 
 function onZoom() {
