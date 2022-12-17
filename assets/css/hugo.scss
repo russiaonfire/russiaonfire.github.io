@@ -39,6 +39,10 @@ main {
     margin-bottom: auto;
     display: flex;
 
+    @include firefox {
+        max-height: calc(100vh - 40px); // leave the space for map attribution;
+    }
+
     @include phone {
         max-width: 100%;
     }

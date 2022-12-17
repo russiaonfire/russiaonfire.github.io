@@ -11,3 +11,9 @@ $phone-max-width: 1000px;
     @content;
   }
 }
+
+@mixin firefox {
+  @supports (-moz-appearance:none) {
+      @content;
+  }
+}
