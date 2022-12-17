@@ -26,6 +26,7 @@ params:
   baseURL: /
   cdnURL: ""
   github: https://github.com/russiaonfire/russiaonfire.github.io
+  preconnect: https://api.mapbox.com
 
 languages:
   ru:

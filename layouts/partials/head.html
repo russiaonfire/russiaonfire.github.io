@@ -45,7 +45,6 @@
 <meta name="theme-color" content="#dc3b33">
 <meta name="apple-mobile-web-app-title" content="ON FIRE">
 
-
 {{ $style := resources.Get "css/hugo.scss" | resources.ToCSS | resources.Minify | fingerprint }}
 <link rel="stylesheet" href="{{ .Site.Params.cdnURL }}{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}"
       crossorigin="anonymous">
