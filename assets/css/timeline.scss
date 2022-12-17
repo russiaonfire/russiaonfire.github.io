@@ -1,0 +1,25 @@
+li.timeline-li {
+    padding-bottom: .4rem;
+    border-left: 1px solid var(--color-a);
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+
+    &:before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border:  var(--color-a) 2px solid;
+        background: #000;
+        border-radius: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        left: 0px;
+        top: 0px;
+        transition: background-color 300ms;
+    }
+
+    &:hover:before {
+        background: var(--color-a);
+    }
+}

@@ -1,10 +1,11 @@
 @import "reset";
 @import "theme";
+@import "mixins";
 @import "utils";
 @import "typo";
 @import "page-header";
 @import "page-footer";
-@import "mixins";
+@import "timeline";
 
 html, body {
     font-family: arial,sans-serif;

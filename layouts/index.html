@@ -10,24 +10,28 @@
 
 {{ range .Paginator.Pages.GroupByDate ":date_medium" }}
     {{ $page := index .Pages 0 }} <!-- Each group has at least 1 page -->
-    <!-- <p class="mb-0">{{ .Key }}</p> -->
-    <p class="small text-muted mb-0">
-        <i>{{.Key}}</i>
-    </p>  
+    
+    <ul class="timeline">
+        <li class="timeline-li">
+            <p class="small text-muted mb-0">
+                <i>{{.Key}}</i>
+            </p>  
 
-    <ul itemscope itemtype="https://schema.org/ItemList https://schema.org/NewsArticle">
-        {{ range .Pages.ByDate }}        
-        <li>    
-            <p class="mb-0">
-                <a itemprop="url" href="{{.Permalink}}">
-                    <span itemprop="headline">{{.Title}}</span>
-                </a>
-
-                <meta itemprop="datePublished" content="{{ .Date | time.Format "2006-01-02" }}" />
-            </p>
-        </li>        
-        {{ end }}
-    </ul>
+            <ul itemscope itemtype="https://schema.org/ItemList https://schema.org/NewsArticle">
+                {{ range .Pages.ByDate }}        
+                <li>    
+                    <p class="mb-0">
+                        <a itemprop="url" href="{{.Permalink}}">
+                            <span itemprop="headline">{{.Title}}</span>
+                        </a>
+        
+                        <meta itemprop="datePublished" content="{{ .Date | time.Format "2006-01-02" }}" />
+                    </p>
+                </li>        
+                {{ end }}
+            </ul>
+        </li>
+    </ul>   
 {{ end }}
 
 {{ template "_internal/pagination.html" . }}
