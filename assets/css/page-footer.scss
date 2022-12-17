@@ -13,18 +13,20 @@
 .page-footer-collapse {
     position: sticky;
     bottom: calc(var(--main-ident) * -1);    
-    z-index: 100;
+    z-index: 100;  
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+}
 
-    button {
-        background: rgba(var(--color-bg), 1);
-        box-shadow: rgba(var(--color-bg), 1) 0 0 10px;
-        border: none;
-        outline: none;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    svg {
-        fill: rgba(var(--color-heading), 1);
-    }
+.page-footer-button {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--color-bg), 1);
 }

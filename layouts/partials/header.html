@@ -8,6 +8,8 @@
         {{ $image := resources.Get "img/logo.webp" | fingerprint }}
         <img 
             src="{{ $.Site.Params.cdnURL }}{{ $image.RelPermalink }}"
+            width="{{ $image.Width }}"
+            height="{{ $image.Height }}"
             alt="{{ $.Site.Copyright }}"
         >
     </a>

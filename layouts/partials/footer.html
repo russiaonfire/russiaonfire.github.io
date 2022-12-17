@@ -2,12 +2,8 @@
   <p>
     © {{ now.Year }} {{ $.Site.Copyright }}
 
-    {{ with $.Site.Params.github }}
-    <a class="footer-nav-a" target="_blank" href="{{ . }}">GitHub</a>
-    {{ end }}
-
     {{ with $.File }}
-    <a class="footer-nav-a" target="_blank" href='{{ $.Site.Params.editURL }}{{ replace $.File.Dir "\\" "/" }}{{ .LogicalName }}'>
+    <a class="footer-nav-a" target="_blank" rel="nofollow" href='{{ $.Site.Params.editURL }}{{ replace $.File.Dir "\\" "/" }}{{ .LogicalName }}'>
       {{ T "editThisPage" }}
     </a>
     {{ end }}
@@ -18,8 +14,12 @@
   </p>  
 </footer>
 
-<div class="page-footer-collapse">
-  <button id="toggle" type="button">
-    <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g data-name="Layer 2"><g data-name="arrowhead-up"><rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/><path d="M6.63 11.61L12 7.29l5.37 4.48A1 1 0 0 0 18 12a1 1 0 0 0 .77-.36 1 1 0 0 0-.13-1.41l-6-5a1 1 0 0 0-1.27 0l-6 4.83a1 1 0 0 0-.15 1.41 1 1 0 0 0 1.41.14z"/><path d="M12.64 12.23a1 1 0 0 0-1.27 0l-6 4.83a1 1 0 0 0-.15 1.41 1 1 0 0 0 1.41.15L12 14.29l5.37 4.48A1 1 0 0 0 18 19a1 1 0 0 0 .77-.36 1 1 0 0 0-.13-1.41z"/></g></g></svg>
-  </button>  
-</div>
+<button id="toggle" type="button" class="page-footer-collapse page-footer-button">
+  <img src="/icon-collapse.svg" width="24px" height="24px" alt="Collapse">
+</button>
+
+{{ with $.Site.Params.github }}
+<a class="page-footer-button" target="_blank" rel="nofollow" href="{{ . }}">
+    <img src="/icon-github.svg" width="24px" height="24px" alt="GitHub">
+  </a>    
+{{ end }}  
