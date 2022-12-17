@@ -32,10 +32,10 @@ languages:
   ru:
     flag: 🇷🇺
     description: Начиная с февраля 2022 года, в России участились возгорания, подтопления и хлопки газово-горючей смейси неизвестной природы. Данная свободная энциклопедия каталогизирует подобные случаи взрывоопасной турбулентности.
-    title: Russia on fire map
+    title: RUSSIA ON FIRE
     copyright: RussiaOnFire
   en:
     flag: 🇬🇧
     description: Since February 2022, fires, explosions and sabotage have become more frequent in Russia. This open encyclopedia catalogs such cases of explosive incidents.
-    title: Russia on fire map
+    title: RUSSIA ON FIRE
     copyright: RussiaOnFire
