@@ -1,17 +1,24 @@
 import Pjax from '../vendor/pjax.min.js';
 
-document.onreadystatechange = function () {
-    const pjax = new Pjax({
-        elements: "a:not([data-pjax='off'])", // default is "a[href], form[action]"
-        selectors: [
-          "title",
-          "meta[name=description]",
-          "main",
-        ]
-    });
+document.addEventListener("DOMContentLoaded", function(_) {
+  const pjax = new Pjax({
+    elements: "a:not([data-pjax='off'])", // default is "a[href], form[action]"
+    selectors: [
+      "title",
+      "meta[name=description]",
+      "main",
+    ]
+  });
 
 
   document.addEventListener("redirect", (event) => {
     pjax.loadUrl(event.detail.url);
-  });
-}
+  })
+
+  document.addEventListener('click', function(event) {
+    if (event.target.closest('#toggle')) {
+      event.stopPropagation()
+      document.getElementById("main").classList.toggle("main-collapsed")
+    }
+  }, false);
+});

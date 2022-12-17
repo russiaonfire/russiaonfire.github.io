@@ -1,0 +1,14 @@
+main.main-collapsed {
+    .main-container {
+        background: none;
+        padding: 0;
+    }    
+
+    .main-content, .page-header, .page-footer {
+        display: none;
+    }
+
+    .page-footer-collapse {
+        transform: rotate(-180deg);
+    }
+}

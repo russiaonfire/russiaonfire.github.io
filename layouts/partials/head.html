@@ -48,7 +48,7 @@
 <link rel="stylesheet" href="{{ .Site.Params.cdnURL }}{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}"
       crossorigin="anonymous">
 
-{{ $js := resources.Get "js/hugo.js" | js.Build }}
+{{ $js := resources.Get "js/hugo.js" | js.Build | resources.Minify | fingerprint }}
 <script src="{{ .Site.Params.cdnURL }}{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"
       crossorigin="anonymous"></script>
 

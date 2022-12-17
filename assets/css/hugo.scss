@@ -6,6 +6,7 @@
 @import "page-header";
 @import "page-footer";
 @import "timeline";
+@import "main-collapsed";
 
 html, body {
     font-family: arial,sans-serif;
@@ -43,10 +44,10 @@ main {
     }
 }
 
-.main-content {
+.main-container {
     background: rgba(var(--color-bg), .6);
     -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
     padding: var(--main-ident);
     border-radius: 8px;
     box-shadow: var(--shadow-sm);

@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="/assets/index-e862fac9.css">
   </head>
   <body>
-    <main>
-      <div class="main-content">
+    <main id="main">
+      <div class="main-container">
         {{ partial "header.html" . }}
   
-        {{ block "main" . }}
-        {{ end }}
+        <div class="main-content">
+          {{ block "main" . }}
+          {{ end }}
+        </div>        
   
         {{ partial "footer.html" . }}
       </div>
