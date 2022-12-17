@@ -35,7 +35,7 @@ main {
     left: 0;
     width: 100%;
     max-width: var(--main-width);      
-    max-height: calc(100vh - 40px); // leave the space for map attribution;
+    max-height: calc(100% - 40px); // leave the space for map attribution;
     margin-bottom: auto;
     display: flex;
 
