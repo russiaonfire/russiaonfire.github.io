@@ -15,14 +15,15 @@
         <i>{{.Key}}</i>
     </p>  
 
-    <ul>
+    <ul itemscope itemtype="https://schema.org/ItemList https://schema.org/NewsArticle">
         {{ range .Pages.ByDate }}        
         <li>    
-            <!-- <p class="small text-muted">
-                <i>{{.Date | time.Format ":date_medium"}}</i>
-            </p>             -->
             <p class="mb-0">
-                <a href="{{.Permalink}}">{{.Title}}</a>
+                <a itemprop="url" href="{{.Permalink}}">
+                    <span itemprop="headline">{{.Title}}</span>
+                </a>
+
+                <meta itemprop="datePublished" content="{{ .Date | time.Format "2006-01-02" }}" />
             </p>
         </li>        
         {{ end }}
