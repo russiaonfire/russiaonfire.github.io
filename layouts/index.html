@@ -4,9 +4,11 @@
     {{ .Title | markdownify }}
 </h1>
 
-{{- with .Content -}}
-{{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor"></a> ${3}` | safeHTML }}
-{{- end -}}
+{{ if eq .Paginator.PageNumber 1 }}
+    {{- with .Content -}}
+    {{ . | replaceRE "(<h[1-9] id=\"([^\"]+)\".+)(</h[1-9]+>)" `${1}<a href="#${2}" class="hanchor" ariaLabel="Anchor"></a> ${3}` | safeHTML }}
+    {{- end -}}
+{{ end }}
 
 {{ range .Paginator.Pages.GroupByDate ":date_medium" }}
     {{ $page := index .Pages 0 }} <!-- Each group has at least 1 page -->
