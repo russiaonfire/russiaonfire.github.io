@@ -42,7 +42,9 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
 <meta name="msapplication-TileColor" content="#00c8ff">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#dc3b33">
+<meta name="apple-mobile-web-app-title" content="ON FIRE">
+
 
 {{ $style := resources.Get "css/hugo.scss" | resources.ToCSS | resources.Minify | fingerprint }}
 <link rel="stylesheet" href="{{ .Site.Params.cdnURL }}{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}"
