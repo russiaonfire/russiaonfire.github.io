@@ -77,6 +77,14 @@ main {
     li {
         list-style-type: decimal;
         list-style-position: inside;
+
+        &::marker {
+            color:rgba(var(--color-muted), 1);
+        }
+    }
+
+    p {
+        display: inline;
     }
 
     hr {
