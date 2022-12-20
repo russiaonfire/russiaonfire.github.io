@@ -7,6 +7,7 @@
 @import "page-footer";
 @import "timeline";
 @import "main-collapsed";
+@import "markers";
 
 html, body {
     font-family: arial,sans-serif;
@@ -17,7 +18,7 @@ html, body {
     overflow: hidden;
 }
 
-#app {
+#map {
     position: fixed;
     z-index: 1;
     top: 0;

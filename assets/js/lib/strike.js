@@ -1,20 +1,5 @@
-export interface ISetikeJSON {
-    lat: number
-    lng: number
-    permalink: string
-    title: string
-    date:  string
-}
-
 export class Strike {
-    lat: number
-    lng: number
-    title: string
-    permalink: string
-    date: Date
-    outdated: boolean
-
-  constructor(json: ISetikeJSON) {
+  constructor(json) {
     this.lat = json.lat
     this.lng = json.lng
     this.title = json.title
@@ -24,13 +9,18 @@ export class Strike {
   }
 }
 
-export function ParseStrikes(json: ISetikeJSON[]): Strike[] {
+export function ParseStrikes(json) {
     return json.map(function(element) {
         return new Strike(element)
     })
 }
 
-function isOutdated(date: Date): boolean {
+/**
+ * 
+ * @param {Date} date 
+ * @returns {Boolean}
+ */
+function isOutdated(date) {
   const diff = new Date().getTime() - date.getTime()
   const days = Math.ceil(diff / (1000 * 3600 * 24));
   return days > 7

@@ -1,1 +1,24 @@
-../../vue/dist/index.html
+<html lang="{{ $.Site.Language }}">
+<html>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <main id="main">
+      <div class="main-container">
+        {{ partial "header.html" . }}
+  
+        <div class="main-content">
+          {{ block "main" . }}
+          {{ end }}
+        </div>        
+  
+        {{ partial "footer.html" . }}
+      </div>
+    </main>
+  
+    <div id="map" />
+
+    {{ partial "foot.html" . }}
+  </body>
+</html>

@@ -45,21 +45,25 @@
 <meta name="theme-color" content="#dc3b33">
 <meta name="apple-mobile-web-app-title" content="ON FIRE">
 
-{{ $style := resources.Get "css/hugo.scss" | resources.ToCSS | resources.Minify | fingerprint }}
-<link rel="stylesheet" href="{{ .Site.Params.cdnURL }}{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}"
-      crossorigin="anonymous">
+{{ range $resource := slice "css/hugo.scss" }}
+      {{ $style := resources.Get $resource | resources.ToCSS | resources.Minify | fingerprint }}
+      <link 
+            rel="stylesheet" 
+            href="{{ $.Site.Params.cdnURL }}{{ $style.RelPermalink }}" 
+            integrity="{{ $style.Data.Integrity }}"
+            crossorigin="anonymous"
+      >
+{{ end }}
 
-{{ $js := resources.Get "js/hugo.js" | js.Build | resources.Minify | fingerprint }}
-<script src="{{ .Site.Params.cdnURL }}{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"
-      crossorigin="anonymous"></script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ $.Site.Params.googleTagID }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ $.Site.Params.googleTagID }}');
-</script>
+{{ range $resource := slice "vendor/mapbox-gl.2.11.0.css" }}
+      {{ $style := resources.Get $resource | resources.Minify | fingerprint }}
+      <link 
+            rel="stylesheet" 
+            href="{{ $.Site.Params.cdnURL }}{{ $style.RelPermalink }}" 
+            integrity="{{ $style.Data.Integrity }}"
+            crossorigin="anonymous"
+      >
+{{ end }}
     
 <meta name="strikes" content="{{ relLangURL "strikes/index.json" }}">
+<meta name="mabox-token" content="{{ $.Site.Params.mapboxToken }}">
