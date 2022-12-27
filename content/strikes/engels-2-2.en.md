@@ -1,8 +1,8 @@
 ---
 title: Repeated explosion at the Engels-2 airbase
 date: 2022-12-26
-lat: 51.487760
-lng: 46.217646
+lat: 51.474795
+lng: 46.187247
 ---
 
 On the night of Monday, December 26, it became known about a powerful explosion in the area of ​​the Engels-2 military airfield (Saratov region of the Russian Federation), where strategic bombers and several air regiments of the Russian army are based.
