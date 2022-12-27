@@ -1,4 +1,11 @@
 export class Strike {
+  lat: number
+  lng: number
+  title: string
+  permalink: string
+  date: Date
+  outdated: boolean
+
   constructor(json) {
     this.lat = json.lat
     this.lng = json.lng
@@ -9,18 +16,13 @@ export class Strike {
   }
 }
 
-export function ParseStrikes(json) {
+export function ParseStrikes(json: any[]): Strike[] {
     return json.map(function(element) {
         return new Strike(element)
     })
 }
 
-/**
- * 
- * @param {Date} date 
- * @returns {Boolean}
- */
-function isOutdated(date) {
+function isOutdated(date: Date): boolean {
   const diff = new Date().getTime() - date.getTime()
   const days = Math.ceil(diff / (1000 * 3600 * 24));
   return days > 7

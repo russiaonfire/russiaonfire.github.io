@@ -1,5 +1,5 @@
 import mapboxgl from '../vendor/mapbox-gl.2.11.0.js'
-import {ParseStrikes} from "./lib/strike.js"
+import {ParseStrikes} from "./lib/strike"
 
 const maxSxaleZoom = 4
 const zoomInitial = 4
